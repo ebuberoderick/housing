@@ -62,14 +62,14 @@
             $id = $data['id'];
             $ValidExt = array('jgp','jpeg','png','gif');
             foreach ($_FILES['image']['tmp_name'] as $key => $value) {
-                $tempname = $_FILES['image']['tmp_name'];
-                $name = $_FILES['image']['name'];
+                $tempname = $_FILES['image']['tmp_name'][$key];
+                $name = $_FILES['image']['name'][$key];
                 $file = time() . $name;
                 $path= '../img/' . $file;
                 if (move_uploaded_file($tempname, $path)) {
-                    echo 'tes';
+                    echo 'yes';
                 }else{
-                    return 'default.png';
+                    echo 'No';
                 }
             }
         }
